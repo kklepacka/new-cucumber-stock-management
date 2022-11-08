@@ -10,7 +10,7 @@ Quick explanations on the Parameters.feature:
 
 Will assert the following operation: 
 
-(DS_warehouse_capacity > (DS_current_stock + TC_estimated_production))
+(DS_warehouse_capacity > (DS_current_stock + TC_CUF_estimated_production))
 
 @Premium
 
