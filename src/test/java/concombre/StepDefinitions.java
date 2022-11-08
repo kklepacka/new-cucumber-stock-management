@@ -85,7 +85,7 @@ public class StepDefinitions {
     
     @When("I check my warehouse capacity")
     public void i_check_my_warehouse_capacity() throws ParameterException {
-        warehouseCapacity = ParameterService.INSTANCE.getTestInt("DSNAME");
+        warehouseCapacity = ParameterService.INSTANCE.getTestInt("DS_warehouse_capacity");
     }
     
     @Then("it should fit")
