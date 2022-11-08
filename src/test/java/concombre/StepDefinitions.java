@@ -80,7 +80,7 @@ public class StepDefinitions {
 
     @When("I count next month's estimated production")
     public void i_count_next_month_s_estimated_production() throws ParameterException {
-        estimatedProduction = ParameterService.INSTANCE.getTestInt("TC_estimated_production");
+        estimatedProduction = ParameterService.INSTANCE.getTestInt("TC_CUF_estimated_production");
     }
     
     @When("I check my warehouse capacity")
