@@ -4,6 +4,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
+import org.opentestfactory.exception.ParameterException;
+import org.opentestfactory.util.ParameterService;
 
 public class StepDefinitions {
     int lot1;
@@ -12,6 +14,11 @@ public class StepDefinitions {
     String item;
     int itemValue;
     final int minExpected = 5;
+    int currentStock;
+    int estimatedProduction;
+    int warehouseCapacity;
+    double maintenanceCost;
+    float rentingCost;
 
     @Given("I've {int} products")
     public void i_ve_number_products(int qty) {
@@ -64,5 +71,50 @@ public class StepDefinitions {
     @Then("I should have more than the minimum needed")
     public void i_should_have_more_than_the_minimum_needed() {
         Assertions.assertTrue(total >= minExpected, "Error detected, we need at least "+ minExpected +" products, right now we have only "+ total + " products");
+    }
+
+    @Given("I count my current stock")
+    public void i_count_my_current_stock() throws ParameterException {
+        currentStock = ParameterService.INSTANCE.getTestInt("DS_current_stock");
+    }
+
+    @When("I count next month's estimated production")
+    public void i_count_next_month_s_estimated_production() throws ParameterException {
+        estimatedProduction = ParameterService.INSTANCE.getTestInt("TC_estimated_production");
+    }
+    
+    @When("I check my warehouse capacity")
+    public void i_check_my_warehouse_capacity() throws ParameterException {
+        warehouseCapacity = ParameterService.INSTANCE.getTestInt("DSNAME");
+    }
+    
+    @Then("it should fit")
+    public void it_should_fit() {
+        Assertions.assertTrue(warehouseCapacity > (currentStock + estimatedProduction), "Stock will overflow, our warehouse is not big enough");
+    }
+    
+    @When("I check the current product's value is {int}")
+    public void i_check_the_current_product_s_value_is(Integer int1) throws ParameterException {
+        Assertions.assertTrue(ParameterService.INSTANCE.getBoolean("CPG_CUF_product_value_is_five"));
+    }
+    
+    @When("I check the warehouse's reference")
+    public void i_check_the_warehouse_s_reference() throws ParameterException {
+        Assertions.assertEquals("WH1948", ParameterService.INSTANCE.getTestString("IT_CUF_warehouse_name"), "This is not the expected warehouse");
+    }
+    
+    @When("I check the warehouse's maintenance cost")
+    public void i_check_the_warehouse_s_maintenance_cost() throws ParameterException {
+        maintenanceCost = ParameterService.INSTANCE.getTestDouble("TS_CUF_maintenance_cost");
+    }
+    
+    @When("I check the warehouse's renting cost")
+    public void i_check_the_warehouse_s_renting_cost() throws ParameterException {
+        rentingCost = ParameterService.INSTANCE.getTestFloat("DS_renting_cost");
+    }
+    
+    @Then("the charges should not exceed a third of the products value")
+    public void the_charges_should_not_exceed_a_third_of_the_products_value() {
+        Assertions.assertTrue((((float)currentStock * 5) / 3) > (rentingCost + maintenanceCost));
     }
 }

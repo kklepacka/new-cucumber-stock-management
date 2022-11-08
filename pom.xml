@@ -56,6 +56,11 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.opentestfactory.util</groupId>
+            <artifactId>opentestfactory-java-param-library</artifactId>
+            <version>1.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -77,4 +82,13 @@
             </plugin>
         </plugins>
     </build>
+    
+    <repositories>
+        <repository>
+            <id>org.squashtest.repo.release</id>
+            <name>Squashtest repository for releases</name>
+            <url>https://nexus.squashtest.org/nexus/repository/maven-squashtest-public-releases/</url>
+        </repository>
+    </repositories>
+
 </project>
