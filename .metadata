@@ -1,0 +1,12 @@
+description: |
+    Cucumber project for versions > 4.
+    This branch does not work correctly with Squash AUTOM/DEVOPS.
+    Uses the Cucumber JUnit Platform Engine and the JUnit Platform Suite.
+
+tags:
+- new_cucumber
+- cucumber_junit_platform_engine
+- junit_platform_suite
+- headless
+- parameters
+- no_parameters
