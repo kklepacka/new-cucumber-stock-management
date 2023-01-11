@@ -1,6 +1,7 @@
 description: |
-    Cucumber project doing some simple operations
-    Uses version 7.0.0
+    Cucumber project doing some simple operations.
+    Uses version 7.0.0.
+    Acceptance branch to test new versions of the param lib
 
 tags:
 - new_cucumber
@@ -8,3 +9,4 @@ tags:
 - parameters
 - no_parameters
 - 7.0.0
+- acceptance
