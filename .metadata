@@ -1,0 +1,10 @@
+description: |
+    Cucumber project doing some simple operations
+    Uses version 7.0.0
+
+tags:
+- new_cucumber
+- headless
+- parameters
+- no_parameters
+- 7.0.0
