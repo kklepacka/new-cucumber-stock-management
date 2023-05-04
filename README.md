@@ -2,8 +2,6 @@ Project using Cucumber > 4.
 
 A branch exists for each major version of Cucumber.
 
-The master branch uses the cucumber junit platform engine, this was used as a test but it should NOT be used.
-
 Quick explanations on the Parameters.feature:
 
 @Community
